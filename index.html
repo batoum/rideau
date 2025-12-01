@@ -5,28 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rideau</title>
   <style>
-    body {
+   body {
       margin: 0;
-      height: 100vh;
-      background: #0D0C53;
+      background-color: #0D0C53;
       color: #ffffff80;
-      font-family: 'Noto Sans', sans-serif;
       display: flex;
+      height: 100vh;
       flex-direction: column;
-      justify-content: space-between; /* key */
+      justify-content: center;
       align-items: center;
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
       text-align: center;
     }
-
+  a {
+    color: #ffffff80;
+    text-decoration: none;
+  }
+  a:hover {  
+    text-decoration: underline;
+  }
+     @media (max-width: 900px) {
+    body {
+      font-size: 15px;
+    }
     header, footer {
       padding: 20px;
-      font-size: 14px;
     }
 
     #london-time {
-      font-weight: 600;
-      color: #ffffffcc;
-    }
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 13px;   /* whatever your original size was */
+  font-weight: 400;
+  color: #ffffff80;
+}
   </style>
 </head>
 

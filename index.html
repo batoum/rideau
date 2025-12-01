@@ -36,8 +36,24 @@
 </head>
 <body>
   <img src="https://github.com/batoum/rideau/blob/main/logo.png?raw=true" alt="logo" width="165px">
-  <p>&copy; 2025 Rideau Limited. All Rights Reserved.</br>
-  21 Knightsbridge, London SW1X 7LY, UK</br>
+  <p>
+    <span id="london-time"></span>
+<script>
+  function updateLondon() {
+    const nowLondon = new Date().toLocaleTimeString("en-GB", {
+      timeZone: "Europe/London",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit"
+    });
+    document.getElementById("london-time").innerText = nowLondon;
+  }
+
+  updateLondon();
+  setInterval(updateLondon, 1000); // updates every second
+</script><br>
+  London, UK</br>
+  &copy; 2025 Rideau Limited. All Rights Reserved.</br>
   <a href="mailto:information@rideaupartners.com">Contact</a></p><br><br><br><br>
 </body>
 </html>

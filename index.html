@@ -18,9 +18,14 @@
     font-size: 13px;   /* your original size */
     font-weight: 400;
     text-align: center;
-    padding-top: 30px;
-    padding-bottom: 30px;
   }
+
+.wrapper {
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
   /* Ensures time keeps SAME size and style */
   #london-time {
@@ -54,7 +59,7 @@
 
   <!-- TOP: Time -->
   <header>
-    <span id="london-time"></span>&nbsp; &#183; &nbsp;London, UK
+     <div class="wrapper"><span id="london-time"></span>&nbsp; &#183; &nbsp;London, UK</div>
   </header>
 
   <!-- MIDDLE: Logo -->
@@ -65,10 +70,10 @@
 
   <!-- BOTTOM: Footer text -->
   <footer>
-    <a href="mailto:information@rideaupartners.com" 
+     <div class="wrapper"><a href="mailto:information@rideaupartners.com" 
        style="color:#ffffff80; text-decoration:none;">
        Contact
-    </a>
+    </a></div>
   </footer>
 
   <!-- TIME SCRIPT -->

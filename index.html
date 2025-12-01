@@ -4,53 +4,69 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rideau</title>
-  <link rel="icon" href="https://github.com/batoum/rideau/blob/main/Rectangle%201.png?raw=true" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Noto+Sans:wght@400&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      background-color: #0D0C53;
-      color: #ffffff80;
-      display: flex;
       height: 100vh;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      background: #0D0C53;
+      color: #ffffff80;
       font-family: 'Noto Sans', sans-serif;
-      font-size: 13px;
-      font-weight: 400;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between; /* key */
+      align-items: center;
       text-align: center;
     }
-  a {
-    color: #ffffff80;
-    text-decoration: none;
-  }
-  a:hover {  
-    text-decoration: underline;
-  }
-     @media (max-width: 900px) {
-    body {
-      font-size: 15px;
-    }}
+
+    header, footer {
+      padding: 20px;
+      font-size: 14px;
+    }
+
+    #london-time {
+      font-weight: 600;
+      color: #ffffffcc;
+    }
   </style>
 </head>
-<body>
-  <img src="https://github.com/batoum/rideau/blob/main/logo.png?raw=true" alt="logo" width="165px">
-  <p>
-    <span id="london-time"></span>
-<script>
-  function updateLondon() {
-    const nowLondon = new Date().toLocaleTimeString("en-GB", {
-      timeZone: "Europe/London",
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit"
-    });
-    document.getElementById("london-time").innerText = nowLondon;
-  }
 
-  updateLondon();
-  setInterval(updateLondon, 1000); // updates every second
-</script>&nbsp; &#183; &nbsp;London, UK
+<body>
+
+  <!-- TOP: Time -->
+  <header>
+    <span id="london-time"></span>&nbsp; &#183; &nbsp;London, UK
+  </header>
+
+  <!-- MIDDLE: Logo -->
+  <main>
+    <img src="https://github.com/batoum/rideau/blob/main/logo.png?raw=true"
+         alt="logo" width="165">
+  </main>
+
+  <!-- BOTTOM: Footer text -->
+  <footer>
+    <a href="mailto:information@rideaupartners.com" 
+       style="color:#ffffff80; text-decoration:none;">
+       Contact
+    </a>
+    &nbsp; &#183; &nbsp;
+    © Rideau Limited
+  </footer>
+
+  <!-- TIME SCRIPT -->
+  <script>
+    function updateLondon() {
+      const nowLondon = new Date().toLocaleTimeString("en-GB", {
+        timeZone: "Europe/London",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit"
+      });
+      document.getElementById("london-time").innerText = nowLondon;
+    }
+    updateLondon();
+    setInterval(updateLondon, 1000);
+  </script>
+
 </body>
 </html>

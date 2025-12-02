@@ -67,6 +67,16 @@
 .desktop-only {
     display: none;
   }
+    .mobile-only {
+    display: none;
+  }
+    .wrapper-b {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* no vertical padding here */
+  }
+    text-transform: none;
   }
 </style>
 </head>
@@ -87,7 +97,10 @@
   <!-- BOTTOM: Footer text -->
 <footer class="wrapper-b">
   <span class "desktop-only">&#169; Rideau Limited</span>
-  <span><a href="mailto:information@rideaupartners.com">
+  <span class="desktop-only"><a href="mailto:information@rideaupartners.com">
+    information@rideaupartners.com
+  </a></span>
+  <span class="mobile-only"><a href="mailto:information@rideaupartners.com">
     Contact
   </a></span>
   

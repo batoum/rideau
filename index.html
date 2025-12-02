@@ -30,6 +30,17 @@
     /* no vertical padding here */
   }
 
+ .wrapper-b {
+  display: flex;
+  justify-content: space-between; /* pushes items to opposite ends */
+  width: 100%;                    /* make the row full-width */
+  align-items: center;            /* vertical alignment */
+}
+
+  .footer-row span {
+  text-transform: uppercase;
+}
+
   #london-time {
     font-family: 'Noto Sans', sans-serif;
     font-size: 13px;
@@ -71,10 +82,12 @@
   </main>
 
   <!-- BOTTOM: Footer text -->
-<footer class="wrapper">
-  <a href="mailto:information@rideaupartners.com">
+<footer class="wrapper-b">
+  <span>&#169; Rideau Limited</span>
+  <span><a href="mailto:information@rideaupartners.com">
     information@rideaupartners.com
-  </a>
+  </a></span>
+  
 </footer>
 
   <!-- TIME SCRIPT -->

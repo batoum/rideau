@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rideau</title>
+
 <style>
   body {
     margin: 0;
@@ -12,34 +13,42 @@
     display: flex;
     flex-direction: column;
     height: 100vh;
-    box-sizing: border-box;      /* include padding inside 100vh */
-    padding: 40px 30px 30px 30px;             /* top/bottom padding for the whole page */
-    justify-content: space-between; 
+    box-sizing: border-box;
+    padding: 40px 30px 30px 30px;
+    justify-content: space-between;
     align-items: center;
     font-family: 'Noto Sans', sans-serif;
     font-size: 13px;
     font-weight: 400;
     text-align: center;
-    overflow: hidden;            /* belt-and-braces: hide any tiny overflow */
+    overflow: hidden;
   }
 
   .wrapper {
     display: flex;
     flex-direction: row;
     align-items: center;
-    /* no vertical padding here */
   }
 
- .wrapper-b {
-  display: flex;
-  justify-content: space-between; /* pushes items to opposite ends */
-  width: 100%;                    /* make the row full-width */
-  align-items: center;            /* vertical alignment */
-}
+  .wrapper-b {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+  }
 
   .wrapper-b span {
-  text-transform: uppercase;
-}
+    text-transform: uppercase;
+  }
+
+  /* ---- Visibility Control ---- */
+  .desktop-only {
+    display: inline;
+  }
+
+  .mobile-only {
+    display: none;
+  }
 
   #london-time {
     font-family: 'Noto Sans', sans-serif;
@@ -57,27 +66,33 @@
     text-decoration: underline;
   }
 
+  /* ---- Mobile Styles ---- */
   @media (max-width: 900px) {
     body {
       font-size: 15px;
       padding: 40px 0;
     }
+
     #london-time {
       font-size: 15px;
     }
-.desktop-only {
-    display: none;
-  }
+
+    .desktop-only {
+      display: none;
+    }
+
     .mobile-only {
-    display: none;
-  }
+      display: inline;
+    }
+
     .wrapper-b {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    /* no vertical padding here */
-  }
-    text-transform: none;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .wrapper-b span {
+      text-transform: none;
+    }
   }
 </style>
 </head>
@@ -85,27 +100,32 @@
 <body>
 
   <!-- TOP: Time -->
-    <header class="wrapper">
-     <span id="london-time"></span>&nbsp; &#183; &nbsp;London, UK
+  <header class="wrapper">
+    <span id="london-time"></span>&nbsp; &#183; &nbsp;London, UK
   </header>
 
   <!-- MIDDLE: Logo -->
   <main>
     <img src="https://raw.githubusercontent.com/batoum/rideau/main/logo.png" 
-     alt="logo" width="165">
+         alt="logo" width="165">
   </main>
 
-  <!-- BOTTOM: Footer text -->
-<footer class="wrapper-b">
-  <span class "desktop-only">&#169; Rideau Limited</span>
-  <span class="desktop-only"><a href="mailto:information@rideaupartners.com">
-    information@rideaupartners.com
-  </a></span>
-  <span class="mobile-only"><a href="mailto:information@rideaupartners.com">
-    Contact
-  </a></span>
-  
-</footer>
+  <!-- BOTTOM: Footer -->
+  <footer class="wrapper-b">
+
+    <span class="desktop-only">&#169; Rideau Limited</span>
+
+    <span class="desktop-only">
+      <a href="mailto:information@rideaupartners.com">
+        information@rideaupartners.com
+      </a>
+    </span>
+
+    <span class="mobile-only">
+      <a href="mailto:information@rideaupartners.com">Contact</a>
+    </span>
+
+  </footer>
 
   <!-- TIME SCRIPT -->
   <script>

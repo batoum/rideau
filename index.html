@@ -7,11 +7,6 @@
   <meta name="description" content="Rideau is a private company operating across financial services, energy, and technology.">
 
 <style>
-  html, body {
-    max-width: 100%;
-    overflow-x: hidden; /* prevent any horizontal scroll */
-  }
-
   body {
     margin: 0;
     background-color: #0D0C53;
@@ -27,9 +22,8 @@
     font-size: 13px;
     font-weight: 400;
     text-align: center;
-    position: relative;
+    overflow: hidden;
   }
-
   .wrapper {
     display: flex;
     flex-direction: row;
@@ -51,6 +45,7 @@
   .desktop-only {
     display: inline;
   }
+
   .mobile-only {
     display: none;
   }
@@ -66,6 +61,7 @@
     color: #ffffff80;
     text-decoration: none;
   }
+
   a:hover {
     text-decoration: underline;
   }
@@ -74,7 +70,7 @@
   @media (max-width: 900px) {
     body {
       font-size: 15px;
-      padding: 40px 20px 60px 20px; /* give a bit of side padding on mobile */
+      padding: 40px 0 60px 0;
     }
 
     #london-time {
@@ -84,6 +80,7 @@
     .desktop-only {
       display: none;
     }
+
     .mobile-only {
       display: inline;
     }
@@ -96,98 +93,11 @@
     .wrapper-b span {
       text-transform: none;
     }
-
-    .line:nth-child(1),
-    .line:nth-child(2),
-    .line:nth-child(3) {
-      display: none; /* as you had – hides lines on mobile */
-    }
-  }
-
-  /* ------------------------------
-     SUBTLE FALLING-LINE BACKGROUND
-     ------------------------------ */
-  .lines {
-    position: absolute;
-    top: 0;
-    left: 50%;              /* center from the middle */
-    transform: translateX(-50%); /* keep it centered, no fixed shift */
-    height: 100%;
-    width: 100vw;           /* span full viewport width */
-    z-index: -1;
-    pointer-events: none;
-    overflow: hidden;
-  }
-
-  .line {
-    position: absolute;
-    width: 2px;
-    height: 100%;
-    top: 0;
-    left: 50%;
-    background: rgba(120, 160, 220, 0.06);
-    overflow: hidden;
-  }
-
-  .line::after {
-    content: '';
-    display: block;
-    position: absolute;
-    height: 10vh;
-    width: 100%;
-    top: -50%;
-
-    background: linear-gradient(
-      to bottom,
-      rgba(120, 160, 220, 0) 0%,
-      rgba(120, 160, 220, 0.35) 50%,
-      rgba(120, 160, 220, 0.35) 100%
-    );
-
-    animation: drop 7s 0s infinite;
-    animation-fill-mode: forwards;
-    animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
-  }
-
-  .line:nth-child(1) {
-    margin-left: -35%;
-  }
-  .line:nth-child(1)::after {
-    animation-delay: 2s;
-  }
-
-  .line:nth-child(2) {
-    margin-left:3%;
-  }
-
-  .line:nth-child(3) {
-    margin-left: 30%;
-  }
-  .line:nth-child(3)::after {
-    animation-delay: 3s;
-  }
-  
-   .line:nth-child(1),
-    .line:nth-child(2),
-    .line:nth-child(3) {
-      display: none; /* as you had – hides lines on mobile */
-    }
-
-  @keyframes drop {
-    0% { top: -50%; }
-    100% { top: 110%; }
   }
 </style>
 </head>
 
 <body>
-
-  <!-- BACKGROUND ANIMATION -->
-  <div class="lines">
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-  </div>
 
   <!-- TOP: Time -->
   <header class="wrapper">

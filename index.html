@@ -23,7 +23,9 @@
     font-weight: 400;
     text-align: center;
     overflow: hidden;
+    position: relative;
   }
+
   .wrapper {
     display: flex;
     flex-direction: row;
@@ -45,7 +47,6 @@
   .desktop-only {
     display: inline;
   }
-
   .mobile-only {
     display: none;
   }
@@ -61,7 +62,6 @@
     color: #ffffff80;
     text-decoration: none;
   }
-
   a:hover {
     text-decoration: underline;
   }
@@ -80,7 +80,6 @@
     .desktop-only {
       display: none;
     }
-
     .mobile-only {
       display: inline;
     }
@@ -93,11 +92,90 @@
     .wrapper-b span {
       text-transform: none;
     }
+    
+    .line:nth-child(3) {
+    display: none;
+  }
+  }
+
+  /* ------------------------------
+     SUBTLE FALLING-LINE BACKGROUND
+     ------------------------------ */
+  .lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 90vw;
+    margin: auto;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .line {
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    background: rgba(120, 160, 220, 0.06);
+    overflow: hidden;
+  }
+
+  .line::after {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 10vh;
+    width: 100%;
+    top: -50%;
+    left: 0;
+
+    background: linear-gradient(
+      to bottom,
+      rgba(120, 160, 220, 0) 0%,
+      rgba(120, 160, 220, 0.35) 50%,
+      rgba(120, 160, 220, 0.35) 100%
+    );
+
+    animation: drop 7s 0s infinite;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
+  }
+.lines {
+  transform: translateX(100px);
+}
+  .line:nth-child(1) {
+    margin-left: -40%;
+  }
+  
+  .line:nth-child(1)::after {
+    animation-delay: 2s;
+  }
+
+  .line:nth-child(3) {
+    margin-left: 25%;
+  }
+  .line:nth-child(3)::after {
+    animation-delay: 3s;
+  }
+
+  @keyframes drop {
+    0% { top: -50%; }
+    100% { top: 110%; }
   }
 </style>
 </head>
 
 <body>
+
+  <!-- BACKGROUND ANIMATION -->
+  <div class="lines">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
 
   <!-- TOP: Time -->
   <header class="wrapper">

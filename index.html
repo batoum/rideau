@@ -5,142 +5,164 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rideau</title>
   <meta name="description" content="Rideau is a private company operating across financial services, energy, and technology.">
-  <link rel="icon" href="/Rectangle%201.png" type="image/png">
 
-<style>
-  body {
-    margin: 0;
-    background-color: #0D0C53;
-    color: #ffffff80;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    box-sizing: border-box;
-    padding: 40px 30px 30px 30px;
-    justify-content: space-between;
-    align-items: center;
-    font-family: 'Noto Sans', sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    text-align: center;
-    overflow: hidden;
-  }
-  .wrapper {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .wrapper-b {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    align-items: center;
-  }
-
-  .wrapper-b span {
-    text-transform: uppercase;
-  }
-
-  /* ---- Visibility Control ---- */
-  .desktop-only {
-    display: inline;
-  }
-
-  .mobile-only {
-    display: none;
-  }
-
-  #london-time {
-    font-family: 'Noto Sans', sans-serif;
-    font-size: 13px;
-    font-weight: 400;
-    color: #ffffff80;
-  }
-
-  a {
-    color: #ffffff80;
-    text-decoration: none;
-  }
-
-  a:hover {
-    text-decoration: underline;
-  }
-
-  /* ---- Mobile Styles ---- */
-  @media (max-width: 900px) {
-    body {
-      font-size: 16px;
-      padding: 40px 0 60px 0;
+  <style>
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
     }
 
-    #london-time {
-      font-size: 15px;
+    body {
+      margin: 0;
+      background-color: #0D0C53;
+      color: #ffffff80;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      box-sizing: border-box;
+      padding: 40px 30px 30px 30px;   /* this is the visible “edge” */
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      text-align: center;
+      position: relative;
+    }
+
+    .wrapper {
+      display: flex;
+      align-items: center;
+    }
+
+    /* ================= FOOTER ================= */
+
+    .wrapper-b {
+      display: flex;
+      width: 100%;
+      justify-content: space-between; /* push left / right */
+      align-items: flex-end;          /* bottom align */
     }
 
     .desktop-only {
+      flex: 33.33%;
+      line-height: 1.4;
+      text-transform: uppercase;
+    }
+    
+    /* alignment per column */
+    .col-left {
+      text-align: left;
+    }
+
+    .col-center {
+      text-align: center;
+    }
+
+    .col-right {
+      text-align: right;
+    }
+
+    /* ================= VISIBILITY ================= */
+
+    .mobile-only {
       display: none;
     }
 
-    .mobile-only {
-      display: inline;
+    a {
+      color: #ffffff80;
+      text-decoration: none;
     }
 
-    .wrapper-b {
-      flex-direction: column;
-      gap: 10px;
+    a:hover {
+      text-decoration: underline;
     }
 
-    .wrapper-b span {
-      text-transform: none;
+    /* ================= MOBILE ================= */
+
+    @media (max-width: 900px) {
+      body {
+        font-size: 15px;
+        padding: 40px 20px 60px 20px;
+      }
+
+      .desktop-only {
+        display: none;
+      }
+
+      .mobile-only {
+        display: inline;
+        line-height: 1.5;
+        text-transform: uppercase;
+      }
+
+      .wrapper-b {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
     }
-  }
-</style>
+  </style>
 </head>
 
 <body>
 
-  <!-- TOP: Time -->
+  <!-- TOP -->
   <header class="wrapper">
-    <span id="london-time"></span>&nbsp; &#183; &nbsp;London, UK
+    <span id="datetime"></span>
   </header>
 
-  <!-- MIDDLE: Logo -->
+  <!-- MIDDLE -->
   <main>
-    <img src="https://raw.githubusercontent.com/batoum/rideau/main/logo.png" 
-         alt="logo" width="165">
+    <img src="https://raw.githubusercontent.com/batoum/rideau/main/logo.png" alt="logo" width="165">
   </main>
 
-  <!-- BOTTOM: Footer -->
+  <!-- BOTTOM -->
   <footer class="wrapper-b">
 
-    <span class="desktop-only">&#169; Rideau Limited</span>
+    <span class="desktop-only col-left">
+        London, UK 
+    </span>
 
-    <span class="desktop-only">
-      <a href="mailto:information@rideaupartners.com">
-        information@rideaupartners.com
-      </a>
+    <span class="desktop-only col-center">
+      Rideau Limited
+    </span>
+    
+    <span class="desktop-only col-right">
+       <a href="mailto:information@rideaupartners.com">information@rideaupartners.com</a>
     </span>
 
     <span class="mobile-only">
-      <a href="mailto:information@rideaupartners.com">Contact</a>
+      Rideau Limited <br>
+      London, UK <br>
+      <a href="mailto:information@rideaupartners.com">information@rideaupartners.com</a>
     </span>
 
   </footer>
 
   <!-- TIME SCRIPT -->
   <script>
-    function updateLondon() {
-      const nowLondon = new Date().toLocaleTimeString("en-GB", {
-        timeZone: "Europe/London",
-        hour: "2-digit",
-        minute: "2-digit",
+    function updateDateTime() {
+      const now = new Date();
+
+      const date = now.toLocaleDateString('en-GB', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+      });
+
+      const time = now.toLocaleTimeString('en-GB', {
+        hour: '2-digit',
+        minute: '2-digit',
         second: "2-digit"
       });
-      document.getElementById("london-time").innerText = nowLondon;
+
+      document.getElementById('datetime').innerHTML =
+        time + '&nbsp; &#183; &nbsp;' + date;
     }
-    updateLondon();
-    setInterval(updateLondon, 1000);
+
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
   </script>
 
 </body>

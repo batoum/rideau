@@ -7,22 +7,32 @@
   <meta name="description" content="Rideau is a private company operating across financial services, energy, and technology.">
 
   <style>
+    /* ===== Global safety ===== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
     html, body {
+      width: 100%;
       max-width: 100%;
       overflow-x: hidden;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      margin: 0;
       background-color: #0D0C53;
       color: #ffffff80;
       display: flex;
       flex-direction: column;
-      height: 100vh;
-      box-sizing: border-box;
-      padding: 40px 30px 30px 30px;   /* this is the visible “edge” */
+
+      /* critical for mobile Safari */
+      min-height: 100svh;
+
+      padding: 40px 30px 30px 30px;
       justify-content: space-between;
       align-items: center;
+
       font-family: 'Noto Sans', sans-serif;
       font-size: 14px;
       font-weight: 400;
@@ -30,43 +40,45 @@
       position: relative;
     }
 
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
     .wrapper {
       display: flex;
       align-items: center;
+      justify-content: center;
+      width: 100%;
     }
 
-    /* ================= FOOTER ================= */
+    /* ===== FOOTER ===== */
 
     .wrapper-b {
       display: flex;
       width: 100%;
-      justify-content: space-between; /* push left / right */
-      align-items: flex-end;          /* bottom align */
+      max-width: 100%;
+      justify-content: space-between;
+      align-items: flex-end;
     }
 
     .desktop-only {
-      flex: 33.33%;
+      flex: 0 0 33.333%;
       line-height: 1.4;
       text-transform: uppercase;
     }
-    
-    /* alignment per column */
-    .col-left {
-      text-align: left;
-    }
 
-    .col-center {
-      text-align: center;
-    }
+    .col-left   { text-align: left; }
+    .col-center { text-align: center; }
+    .col-right  { text-align: right; }
 
-    .col-right {
-      text-align: right;
-    }
-
-    /* ================= VISIBILITY ================= */
-
+    /* Allow long strings (email) to wrap */
+    a,
+    .desktop-only,
     .mobile-only {
-      display: none;
+      overflow-wrap: anywhere;
+      word-break: break-word;
     }
 
     a {
@@ -77,15 +89,14 @@
     a:hover {
       text-decoration: underline;
     }
-    
-    .mobile-only,
-    .wrapper-b,
-    a {
-      overflow-wrap: anywhere;
-      word-break: break-word;
+
+    /* ===== VISIBILITY ===== */
+
+    .mobile-only {
+      display: none;
     }
 
-    /* ================= MOBILE ================= */
+    /* ===== MOBILE ===== */
 
     @media (max-width: 900px) {
       body {
@@ -98,9 +109,11 @@
       }
 
       .mobile-only {
-        display: inline;
-        line-height: 1.7;
+        display: block;
         text-transform: uppercase;
+        line-height: 1.6;
+        text-align: center;
+        max-width: 100%;
       }
 
       .wrapper-b {
@@ -119,30 +132,40 @@
     <span id="datetime"></span>
   </header>
 
-  <!-- MIDDLE -->
+  <!-- MIDDLE (LOGO LINK FIXED) -->
   <main>
-    <img src="https://raw.githubusercontent.com/batoum/rideau/main/logo.png" alt="logo" width="165">
+    <a href="/" aria-label="Rideau home">
+      <img
+        src="https://raw.githubusercontent.com/batoum/rideau/main/logo.png"
+        alt="Rideau logo"
+        width="165"
+      >
+    </a>
   </main>
 
   <!-- BOTTOM -->
   <footer class="wrapper-b">
 
     <span class="desktop-only col-left">
-        London, UK 
+      London, UK
     </span>
 
     <span class="desktop-only col-center">
       Rideau Limited
     </span>
-    
+
     <span class="desktop-only col-right">
-       <a href="mailto:information@rideaupartners.com">information@rideaupartners.com</a>
+      <a href="mailto:information@rideaupartners.com">
+        information@rideaupartners.com
+      </a>
     </span>
 
     <span class="mobile-only">
-      Rideau Limited <br>
-      London, UK <br>
-      <a href="mailto:information@rideaupartners.com">information@rideaupartners.com</a>
+      Rideau Limited<br>
+      London, UK<br>
+      <a href="mailto:information@rideaupartners.com">
+        information@rideaupartners.com
+      </a>
     </span>
 
   </footer>
@@ -161,7 +184,7 @@
       const time = now.toLocaleTimeString('en-GB', {
         hour: '2-digit',
         minute: '2-digit',
-        second: "2-digit"
+        second: '2-digit'
       });
 
       document.getElementById('datetime').innerHTML =

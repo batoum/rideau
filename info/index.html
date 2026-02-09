@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rideau Partners</title>
+  <meta name="description" content="Rideau is a private company operating across financial services, energy, and technology.">
+
+  <style>
+    /* ===== Global safety ===== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #F3F5F7;
+      color: #005CAE;
+      display: flex;
+      flex-direction: column;
+
+      /* critical for mobile Safari */
+      min-height: 100svh;
+
+      padding: 40px 30px 30px 30px;
+      justify-content: space-between;
+      align-items: center;
+
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      text-align: center;
+      position: relative;
+    }
+    
+    header {
+      color: #005CAE70;
+    }
+    
+    main {
+      line-height: 1.4;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+    
+    .pre-footer {
+      position: absolute;
+      bottom: 100px; /* ~50px above footer, adjust as needed */
+      left: 0;
+      width: 100%;
+
+      text-align: center;
+      text-transform: uppercase;
+      color: #005CAE;
+    }
+    
+
+
+    /* ===== FOOTER ===== */
+
+    .wrapper-b {
+      display: flex;
+      width: 100%;
+      max-width: 100%;
+      justify-content: space-between;
+      align-items: flex-end;
+      color: #005CAE70;
+    }
+    .wrapper-b a {
+      color: #005CAE70;
+    }
+    
+    .wrapper-c {
+  width: 50%;
+  max-width: 50%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;   /* vertical stack */
+  gap: 32px;                /* spacing between sections */
+}
+        
+  .about-text {
+  text-align: left;
+  line-height: 1.5;
+}
+    
+  .wrapper-c a {
+  text-transform: uppercase;
+    text-align:left;
+}
+
+
+    .desktop-only {
+      flex: 0 0 33.333%;
+      line-height: 1.4;
+      text-transform: uppercase;
+    }
+
+    .col-left   { text-align: left; }
+    .col-center { text-align: center; }
+    .col-right  { text-align: right; }
+
+    /* Allow long strings (email) to wrap */
+    a,
+    .desktop-only,
+    .mobile-only {
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    a {
+      color: #005CAE;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+    
+    .pre-footer a {
+      color: #005CAE;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: opacity 0.2s ease;
+    }
+
+    .pre-footer a:hover {
+    opacity: 0.6; /* 80% visible on hover */
+    }
+
+    /* ===== VISIBILITY ===== */
+
+    .mobile-only {
+      display: none;
+    }
+
+    /* ===== MOBILE ===== */
+
+    @media (max-width: 900px) {
+      body {
+        font-size: 14px;
+        padding: 40px 20px 40px 20px;
+      }
+
+      .desktop-only {
+        display: none;
+      }
+
+      .mobile-only {
+        display: block;
+        text-transform: uppercase;
+        line-height: 2;
+        text-align: center;
+        max-width: 100%;
+        font-size:13px;
+      }
+
+      .wrapper-b {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+      
+      .wrapper-c {
+  width: 100%;
+  max-width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP -->
+  <header class="wrapper">
+    <span id="datetime"></span>
+  </header>
+
+  <!-- MIDDLE (LOGO LINK FIXED) -->
+  <main>
+  <div class="wrapper-c">
+
+    <div class="about-text">
+      Rideau Partners is a private company operating across financial services, energy, and technology.<br><br>
+
+      Rideau works directly with business owners, investors, and specialist partners on projects involving the long-term development of their businesses, taking a practical, hands-on approach focused on durable outcomes.<br><br>
+
+      Rideau is based in London, UK and does not act as an investment adviser or provide investment advice.<br><br>
+    </div>
+
+    
+      <a href="mailto:information@rideaupartners.com">
+        information@rideaupartners.com
+      </a>
+    
+
+  </div>
+</main>
+
+ <div class="pre-footer">
+  <a href="/">Back</a>
+</div>
+  
+  
+  <!-- BOTTOM -->
+  <footer class="wrapper-b">
+
+    <span class="desktop-only col-left">
+      London, UK
+    </span>
+
+    <span class="desktop-only col-center">
+      Rideau Partners
+    </span>
+
+    <span class="desktop-only col-right">
+      <a href="mailto:information@rideaupartners.com">
+        information@rideaupartners.com
+      </a>
+    </span>
+
+    <span class="mobile-only">
+      <a href="/info">
+        Further Information
+      </a>
+    </span>
+
+  </footer>
+
+  <!-- TIME SCRIPT -->
+  <script>
+    function updateDateTime() {
+      const now = new Date();
+
+      const date = now.toLocaleDateString('en-GB', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+      });
+
+      const time = now.toLocaleTimeString('en-GB', {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      });
+
+      document.getElementById('datetime').innerHTML =
+        time + '&nbsp; &#183; &nbsp;' + date;
+    }
+
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+  </script>
+
+</body>
+</html>

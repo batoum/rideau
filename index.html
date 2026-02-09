@@ -52,6 +52,20 @@
       justify-content: center;
       width: 100%;
     }
+    
+    .pre-footer {
+      position: absolute;
+      bottom: 100px; /* ~50px above footer, adjust as needed */
+      left: 0;
+      width: 100%;
+
+      text-align: center;
+      font-size: 13px;
+      text-transform: uppercase;
+      color: #ffffff80;
+    }
+    
+
 
     /* ===== FOOTER ===== */
 
@@ -89,6 +103,17 @@
     a:hover {
       text-decoration: underline;
     }
+    
+    .pre-footer a {
+      color: #ffffff80;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: opacity 0.2s ease;
+    }
+
+    .pre-footer a:hover {
+    opacity: 0.6; /* 80% visible on hover */
+    }
 
     /* ===== VISIBILITY ===== */
 
@@ -101,10 +126,14 @@
     @media (max-width: 900px) {
       body {
         font-size: 14px;
-        padding: 40px 20px 20px 20px;
+        padding: 40px 20px 40px 20px;
       }
 
       .desktop-only {
+        display: none;
+      }
+      
+      .pre-footer {
         display: none;
       }
 
@@ -116,6 +145,14 @@
         max-width: 100%;
         font-size:13px;
       }
+      
+      .mobile-only a {
+        text-decoration: underline;
+      }
+      
+      .mobile-only a:hover {
+    opacity: 0.6; /* 80% visible on hover */
+    }
 
       .wrapper-b {
         flex-direction: column;
@@ -138,9 +175,15 @@
       <img
         src="https://raw.githubusercontent.com/batoum/rideau/main/logo.png"
         alt="logo"
-        width="165">
+        width="165"
+      >
   </main>
 
+ <div class="pre-footer">
+  <a href="/info">Info</a>
+</div>
+  
+  
   <!-- BOTTOM -->
   <footer class="wrapper-b">
 
@@ -161,8 +204,8 @@
     <span class="mobile-only">
       Rideau Partners<br>
       London, UK<br>
-      <a href="mailto:information@rideaupartners.com">
-        information@rideaupartners.com
+      <a href="/info">
+        About
       </a>
     </span>
 

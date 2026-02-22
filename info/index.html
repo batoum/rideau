@@ -5,185 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About&nbsp; &#183; &nbsp;Rideau Partners</title>
   <meta name="description" content="Rideau is a private company operating across financial services, energy, and technology.">
-
+  <link rel="stylesheet" href="/styles.css">
   <style>
-    /* ===== Global safety ===== */
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
-
-    html, body {
-      width: 100%;
-      max-width: 100%;
-      overflow-x: hidden;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      background-color: #F3F5F7;
-      color: #005CAE;
-      display: flex;
-      flex-direction: column;
-
-      /* critical for mobile Safari */
-      min-height: 100svh;
-
-      padding: 40px 30px 30px 30px;
-      justify-content: space-between;
-      align-items: center;
-
-      font-family: 'Noto Sans', sans-serif;
-      font-size: 14px;
-      font-weight: 400;
-      text-align: center;
-      position: relative;
-    }
+  .about-text { line-height: 1.6; }
+  .internal-links { text-transform: uppercase; line-height: 2; }
+    .internal-links a {text-decoration: underline;}
+  .internal-links a:hover {text-decoration:none;}
     
-    header {
-      color: #005CAE70;
-    }
-    
-    main {
-      line-height: 1.4;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .wrapper {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-    }
-    
-    .pre-footer {
-      position: absolute;
-      bottom: 100px; /* ~50px above footer, adjust as needed */
-      left: 0;
-      width: 100%;
-
-      text-align: center;
-      text-transform: uppercase;
-      color: #005CAE;
-    }
-    
-
-
-    /* ===== FOOTER ===== */
-
-    .wrapper-b {
-      display: flex;
-      width: 100%;
-      max-width: 100%;
-      justify-content: space-between;
-      align-items: flex-end;
-      color: #005CAE70;
-    }
-    .wrapper-b a {
-      color: #005CAE70;
-    }
-    
-    .wrapper-c {
-  width: 60%;
-  max-width: 60%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;   /* vertical stack */
-  gap: 32px;                /* spacing between sections */
-}
-        
-  .about-text {
-  text-align: left;
-  line-height: 1.5;
-}
-    
-  .wrapper-c a {
-  text-transform: uppercase;
-    text-align:left;
-}
-
-
-    .desktop-only {
-      flex: 0 0 33.333%;
-      line-height: 1.4;
-      text-transform: uppercase;
-    }
-
-    .col-left   { text-align: left; }
-    .col-center { text-align: center; }
-    .col-right  { text-align: right; }
-
-    /* Allow long strings (email) to wrap */
-    a,
-    .desktop-only,
-    .mobile-only {
-      overflow-wrap: anywhere;
-      word-break: break-word;
-    }
-
-    a {
-      color: #005CAE;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-    
-    .pre-footer a {
-      color: #005CAE;
-      text-decoration: underline;
-      text-underline-offset: 3px;
-      transition: opacity 0.2s ease;
-    }
-
-    .pre-footer a:hover {
-    opacity: 0.6; /* 80% visible on hover */
-    }
-
-    /* ===== VISIBILITY ===== */
-
-    .mobile-only {
-      display: none;
-    }
-
-    /* ===== MOBILE ===== */
-
-    @media (max-width: 900px) {
-      body {
-        padding: 40px 20px 20px 20px;
-      }
-
-      .desktop-only {
-        display: none;
-      }
-
-      .mobile-only {
-        display: block;
-        text-transform: uppercase;
-        line-height: 2;
-        text-align: center;
-        max-width: 100%;
-      }
-    
-
-      .wrapper-b {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-      }
-      
-      .wrapper-c {
-  width: 100%;
-  max-width: 100%;
-    }
   </style>
-</head>
+  
+  </head>
 
 <body>
 
@@ -195,28 +26,23 @@
   <!-- MIDDLE (LOGO LINK FIXED) -->
   <main>
   <div class="wrapper-c">
-
     <div class="about-text">
-      Rideau Partners is a privately held company operating across financial services, energy, and technology.<br><br>
+Rideau Partners is a privately held company operating across financial services, energy, and technology.
 
-      We work directly with businesses, capital providers, and specialist partners on projects focused on their long-term development.<br><br>
+<br><br>We work directly with businesses, capital providers, and specialist partners on projects focused on their long-term development.
 
-      Rideau operates globally and is based in London, UK.<br><br>
+<br><br>Rideau operates globally and is based in London, UK.
     </div>
 
-    
-      <a href="mailto:information@rideaupartners.com">
-        information@rideaupartners.com
-      </a>
+
     
 
   </div>
 </main>
-
- <div class="pre-footer">
-  <a href="/">Back</a><br><br><br>
-</div>
   
+   <div class="pre-footer">
+   <a href="/contact">Contact</a>
+</div>
   
   <!-- BOTTOM -->
   <footer class="wrapper-b">
@@ -236,7 +62,7 @@
     </span>
 
     <span class="mobile-only">
-    Rideau Partners<br>
+    <a href="/">Rideau Partners</a><br>
       London, UK
     </span>
 

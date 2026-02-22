@@ -223,6 +223,21 @@ main {
 }
 
 /* ---------- Full-page overlay (Team) ---------- */
+
+.menu-links {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.menu-links a {
+  text-decoration: underline;
+}
+
+.menu-links a:hover {
+  opacity: 0.6;
+  text-decoration: none;
+}
+
 .full-overlay {
   position: fixed;
   inset: 0;
@@ -270,11 +285,13 @@ main {
   text-transform: uppercase;
   cursor: pointer;
   line-height: 1;
+  opacity: 1;
   transition: opacity 0.2s ease;
 }
 
 .overlay-close:hover {
   opacity: 0.6;
+  
 }
 
 /* ---------- Responsive ---------- */

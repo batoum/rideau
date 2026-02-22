@@ -262,6 +262,14 @@ main {
   flex: 1;
 }
 
+.overlay-main .pre-footer {
+  opacity: .6;
+}
+
+.overlay-main .pre-footer a:hover {
+  opacity: 1;
+}
+
 .overlay-content {
   width: var(--content-50);
   max-width: var(--content-50);
@@ -281,16 +289,17 @@ main {
 }
 
 .overlay-close {
+  padding:10px;
   text-decoration: underline;
   text-transform: uppercase;
   cursor: pointer;
   line-height: 1;
-  opacity: 1;
+  opacity: .6;
   transition: opacity 0.2s ease;
 }
 
 .overlay-close:hover {
-  opacity: 0.6;
+  opacity: 0.3;
   
 }
 
@@ -311,6 +320,14 @@ main {
     text-align: center;
     max-width: 100%;
   }
+  
+  .mobile-only a{
+    text-decoration: underline;
+  }
+  
+   .mobile-only a:hover {
+    opacity: .6;
+  }
 
   .wrapper-b {
     flex-direction: column;
@@ -324,7 +341,9 @@ main {
     max-width: 100%;
   }
     
- 
+  .pre-footer {
+    display: none;
+  }
 
   /* Overlay on mobile */
   .full-overlay {
@@ -335,4 +354,5 @@ main {
     width: 100%;
     max-width: 100%;
   }
+ 
 }

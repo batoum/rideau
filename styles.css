@@ -1,0 +1,321 @@
+/* =========================================================
+   Rideau 
+   ========================================================= */
+
+/* ---------- Reset / global safety ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ---------- Theme tokens ---------- */
+:root {
+  /* Default to LIGHT theme (most internal pages) */
+  --bg: #F3F5F7;
+  --text: #005CAE;          /* main text */
+  --muted: #005CAE70;       /* header/footer muted */
+  --link: #005CAE;          /* link */
+  --link-muted: #005CAE70;  /* footer link */
+  --hairline: rgba(0, 0, 0, 0.08);
+
+  --font: sans-serif;
+
+  --base-font-size: 14px;
+  --base-line-height: 1.4;
+
+  /* Layout */
+  --pad-desktop: 40px 30px 30px 30px;
+  --pad-mobile: 40px 20px 20px 20px;
+
+  /* Footer spacing */
+  --prefooter-bottom: 130px;
+
+  /* Content widths */
+    --content-50: 440px;
+}
+
+/* Dark theme used on Home page */
+body.theme-dark {
+  --bg: #0D0C53;
+  --text: #ffffff80;
+  --muted: #ffffff80;
+  --link: #ffffff80;
+  --link-muted: #ffffff80;
+  --hairline: rgba(255, 255, 255, 0.12);
+}
+
+/* ---------- Base layout (shared) ---------- */
+body {
+  background-color: var(--bg);
+  color: var(--text);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  /* critical for mobile Safari */
+  min-height: 100svh;
+
+  padding: var(--pad-desktop);
+
+  font-family: var(--font);
+  font-size: var(--base-font-size);
+  font-weight: 400;
+  line-height: var(--base-line-height);
+  text-align: center;
+
+  position: relative;
+}
+
+/* Header / footer muted tone (matches your internal pages) */
+header {
+  color: var(--muted);
+}
+
+/* If you do not want muted header on dark home, it inherits fine. */
+
+/* Links */
+a {
+  color: var(--link);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+a:hover {
+  text-decoration: underline ;
+}
+
+/* ---------- Wrappers ---------- */
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+main {
+  line-height: var(--base-line-height);
+}
+
+/* ---------- Pre-footer nav (the fixed nav row) ---------- */
+.pre-footer {
+  position: absolute;
+  left: 0;
+  bottom: var(--prefooter-bottom);
+  width: 100%;
+  text-align: center;
+  color: var(--text);
+}
+
+.space {
+  margin: 0 8px;
+}
+
+/* Nav links: you often want uppercase + underline */
+.pre-footer a {
+  color: var(--link);
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 0.2s ease;
+}
+
+.pre-footer a:hover {
+  opacity: 0.6;
+}
+
+/* Your <del> navigation "current page" style */
+.pre-footer del {
+  opacity: 0.55;
+  text-decoration-thickness: 1px;
+}
+
+/* ---------- Footer ---------- */
+.wrapper-b {
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  justify-content: space-between;
+  align-items: flex-end;
+  color: var(--muted);
+}
+
+.wrapper-b a {
+  color: var(--link-muted);
+}
+
+/* Desktop 3-column footer blocks */
+.desktop-only {
+  flex: 0 0 33.333%;
+  line-height: 1.4;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.col-left   { text-align: left; }
+.col-center { text-align: center; }
+.col-right  { text-align: right; }
+
+/* Mobile footer block */
+.mobile-only {
+  display: none;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* ---------- Content blocks (about/team/contact centre column) ---------- */
+/* Use wrapper-c on pages that need a centred column */
+.wrapper-c {
+  width: var(--content-50);
+  max-width: var(--content-50);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+    text-align: left;
+  gap: 32px;
+}
+
+/* Team page uses a narrower column by default */
+.wrapper-c.is-50 {
+  width: var(--content-50);
+  max-width: var(--content-50);
+}
+
+   .wrapper-c.is-centered {
+  text-align: center;
+}
+
+.wrapper-c a:hover {
+    opacity: 0.6;
+}
+
+.about-text {
+  line-height: 1.5;
+}
+
+/* About page makes text left aligned */
+.about-text.is-left {
+  text-align: left;
+}
+
+/* Team list spacing */
+.names {
+  line-height: 2;
+}
+
+/* ---------- Full-page overlay (Team) ---------- */
+.full-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: var(--bg);
+  color: var(--text);
+
+  display: none; /* shown via JS: flex */
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: var(--pad-desktop);
+  z-index: 2000;
+  text-align: center;
+}
+
+.overlay-main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.overlay-content {
+  width: var(--content-50);
+  max-width: var(--content-50);
+  margin: 0 auto;
+ text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* You had a slight “nudge up” on overlay bio text */
+.overlay-content .about-text {
+  line-height: 1.5;
+  margin-top: -50px;
+  text-align: center;
+
+}
+
+.overlay-close {
+  text-decoration: underline;
+  text-transform: uppercase;
+  cursor: pointer;
+  line-height: 1;
+  transition: opacity 0.2s ease;
+}
+
+.overlay-close:hover {
+  opacity: 0.6;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  body {
+    padding: var(--pad-mobile);
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
+  .mobile-only {
+    display: block;
+    text-transform: uppercase;
+    line-height: 2;
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .wrapper-b {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .wrapper-c,
+  .wrapper-c.is-50 {
+    width: 100%;
+    max-width: 100%;
+  }
+    
+ 
+
+  /* Overlay on mobile */
+  .full-overlay {
+    padding: var(--pad-mobile);
+  }
+
+  .overlay-content {
+    width: 100%;
+    max-width: 100%;
+  }
+}

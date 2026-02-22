@@ -44,7 +44,7 @@
 
  
     <div class="pre-footer">
-    <a href="/info">Back</a>
+    <a href="#" onclick="openMenu(); return false;">Info</a>
 </div>
   
   
@@ -64,12 +64,50 @@
     </span>
 
     <span class="mobile-only">
-    <a href="/">Rideau Partners</a><br>
+    Rideau Partners<br>
       London, UK
     </span>
 
   </footer>
 
+  <!-- FULL PAGE MENU OVERLAY -->
+<div class="full-overlay" id="menuOverlay" aria-hidden="true">
+
+  <div class="overlay-main">
+    <div class="overlay-content">
+
+      <div class="menu-links">
+        <a href="/">Home</a><br><br>
+        <a href="/info">About</a><br><br>
+        <a href="/contact">Contact</a>
+      </div>
+
+      <div class="pre-footer">
+        <div class="overlay-close" onclick="closeMenu()">Close</div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+  <!-- MENU SCRIPT -->
+  <script>
+  function openMenu() {
+    const overlay = document.getElementById('menuOverlay');
+    overlay.style.display = 'flex';
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    const overlay = document.getElementById('menuOverlay');
+    overlay.style.display = 'none';
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+</script>
+  
   <!-- TIME SCRIPT -->
   <script>
     function updateDateTime() {

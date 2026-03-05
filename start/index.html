@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rideau Partners</title>
+<meta name="description" content="Rideau Partners">
+<link rel="stylesheet" href="/styles.css">
+
+<script>
+setTimeout(function() {
+  window.location.href = "https://youtu.be/DROifvNtJPo";
+}, 1200);
+</script>
+
+</head>
+
+<body class="theme-dark">
+
+<header class="wrapper">
+<span id="datetime"></span>
+</header>
+
+<main style="text-align:center">
+
+<img
+src="https://raw.githubusercontent.com/batoum/rideau/main/logo.png"
+alt="logo"
+width="165"
+>
+
+<div style="margin-top:40px;font-size:14px;opacity:.7">
+Opening video…
+</div>
+
+</main>
+
+<div class="pre-footer">
+<a href="#" onclick="openMenu(); return false;">Info</a>
+</div>
+
+<footer class="wrapper-b">
+
+<span class="desktop-only col-left">
+London, UK
+</span>
+
+<span class="desktop-only col-center">
+Rideau Partners
+</span>
+
+<span class="desktop-only col-right">
+<a href="mailto:information@rideaupartners.com">
+information@rideaupartners.com
+</a>
+</span>
+
+<span class="mobile-only">
+Rideau Partners<br>
+<a href="#" onclick="openMenu(); return false;">Info</a>
+</span>
+
+</footer>
+
+<script>
+function updateDateTime() {
+const now = new Date();
+
+const date = now.toLocaleDateString('en-GB', {
+day: '2-digit',
+month: '2-digit',
+year: 'numeric'
+});
+
+const time = now.toLocaleTimeString('en-GB', {
+hour: '2-digit',
+minute: '2-digit',
+second: '2-digit'
+});
+
+document.getElementById('datetime').innerHTML =
+time + '&nbsp; &#183; &nbsp;' + date;
+}
+
+updateDateTime();
+setInterval(updateDateTime, 1000);
+</script>
+
+</body>
+</html>

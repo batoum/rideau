@@ -1,5 +1,5 @@
 /* =========================================================
-   Rideau 
+   Rideau
    ========================================================= */
 
 /* ---------- Reset / global safety ---------- */
@@ -28,10 +28,10 @@ img {
 :root {
   /* Default to LIGHT theme (most internal pages) */
   --bg: #F3F5F7;
-  --text: #005CAE;          /* main text */
-  --muted: #005CAE70;       /* header/footer muted */
-  --link: #005CAE;          /* link */
-  --link-muted: #005CAE70;  /* footer link */
+  --text: #005CAE;
+  --muted: #005CAE70;
+  --link: #005CAE;
+  --link-muted: #005CAE70;
   --hairline: rgba(0, 0, 0, 0.08);
 
   --font: sans-serif;
@@ -40,14 +40,14 @@ img {
   --base-line-height: 1.4;
 
   /* Layout */
-  --pad-desktop: 40px 30px 30px 30px;
+  --pad-desktop: 40px 30px 20px 30px;
   --pad-mobile: 40px 20px 20px 20px;
 
   /* Footer spacing */
   --prefooter-bottom: 130px;
 
   /* Content widths */
-    --content-50: 440px;
+  --content-50: 440px;
 }
 
 /* Dark theme used on Home page */
@@ -60,7 +60,7 @@ body.theme-dark {
   --hairline: rgba(255, 255, 255, 0.12);
 }
 
-/* ---------- Base layout (shared) ---------- */
+/* ---------- Base layout ---------- */
 body {
   background-color: var(--bg);
   color: var(--text);
@@ -70,7 +70,6 @@ body {
   justify-content: space-between;
   align-items: center;
 
-  /* critical for mobile Safari */
   min-height: 100svh;
 
   padding: var(--pad-desktop);
@@ -84,14 +83,13 @@ body {
   position: relative;
 }
 
-/* Header / footer muted tone (matches your internal pages) */
+/* ---------- Header ---------- */
 header {
   color: var(--muted);
+  font-size:13px;
 }
 
-/* If you do not want muted header on dark home, it inherits fine. */
-
-/* Links */
+/* ---------- Links ---------- */
 a {
   color: var(--link);
   text-decoration: none;
@@ -100,7 +98,7 @@ a {
 }
 
 a:hover {
-  text-decoration: underline ;
+  text-decoration: underline;
 }
 
 /* ---------- Wrappers ---------- */
@@ -115,7 +113,7 @@ main {
   line-height: var(--base-line-height);
 }
 
-/* ---------- Pre-footer nav (the fixed nav row) ---------- */
+/* ---------- Pre-footer nav ---------- */
 .pre-footer {
   position: absolute;
   left: 0;
@@ -123,13 +121,13 @@ main {
   width: 100%;
   text-align: center;
   color: var(--text);
+  display:none;
 }
 
 .space {
   margin: 0 8px;
 }
 
-/* Nav links: you often want uppercase + underline */
 .pre-footer a {
   color: var(--link);
   text-transform: uppercase;
@@ -142,7 +140,6 @@ main {
   opacity: 0.6;
 }
 
-/* Your <del> navigation "current page" style */
 .pre-footer del {
   opacity: 0.55;
   text-decoration-thickness: 1px;
@@ -153,77 +150,97 @@ main {
   display: flex;
   width: 100%;
   max-width: 100%;
-  justify-content: space-between;
-  align-items: flex-end;
+
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+
   color: var(--muted);
+  text-align: center;
 }
 
 .wrapper-b a {
   color: var(--link-muted);
 }
 
-/* Desktop 3-column footer blocks */
+/* Old desktop footer is always hidden */
 .desktop-only {
-  flex: 0 0 33.333%;
-  line-height: 1.4;
-  text-transform: uppercase;
-  overflow-wrap: anywhere;
-  word-break: break-word;
+  display: none !important;
 }
 
-.col-left   { text-align: left; }
-.col-center { text-align: center; }
-.col-right  { text-align: right; }
-
-/* Mobile footer block */
+/* Mobile-style footer is shown on every viewport */
 .mobile-only {
-  display: none;
+  display: block;
+  text-transform: uppercase;
+  line-height: 2;
+  text-align: center;
+  max-width: 100%;
+  font-size:13px;
   overflow-wrap: anywhere;
   word-break: break-word;
 }
 
-/* ---------- Content blocks (about/team/contact centre column) ---------- */
-/* Use wrapper-c on pages that need a centred column */
+.mobile-only a {
+  text-decoration: underline;
+}
+
+.mobile-only a:hover {
+  opacity: 0.6;
+}
+
+/* Kept in case these are used elsewhere */
+.col-left {
+  text-align: left;
+}
+
+.col-center {
+  text-align: center;
+}
+
+.col-right {
+  text-align: right;
+}
+
+/* ---------- Content blocks ---------- */
 .wrapper-c {
   width: var(--content-50);
   max-width: var(--content-50);
   margin: 0 auto;
+
   display: flex;
   flex-direction: column;
-    text-align: left;
+
+  text-align: left;
   gap: 32px;
 }
 
-/* Team page uses a narrower column by default */
 .wrapper-c.is-50 {
   width: var(--content-50);
   max-width: var(--content-50);
 }
 
-   .wrapper-c.is-centered {
+.wrapper-c.is-centered {
   text-align: center;
 }
 
 .wrapper-c a:hover {
-    opacity: 0.6;
+  opacity: 0.6;
 }
 
 .about-text {
   line-height: 1.5;
 }
 
-/* About page makes text left aligned */
 .about-text.is-left {
   text-align: left;
 }
 
-/* Team list spacing */
+/* ---------- Team list ---------- */
 .names {
   line-height: 2;
 }
 
-/* ---------- Full-page overlay (Team) ---------- */
-
+/* ---------- Full-page overlay ---------- */
 .menu-links {
   text-align: center;
   text-transform: uppercase;
@@ -241,29 +258,33 @@ main {
 .full-overlay {
   position: fixed;
   inset: 0;
+
   background-color: var(--bg);
   color: var(--text);
 
-  display: none; /* shown via JS: flex */
+  display: none;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
 
   padding: var(--pad-desktop);
+
   z-index: 2000;
   text-align: center;
 }
 
 .overlay-main {
   width: 100%;
+
   display: flex;
   justify-content: center;
   align-items: center;
+
   flex: 1;
 }
 
 .overlay-main .pre-footer {
-  opacity: .6;
+  opacity: 0.6;
 }
 
 .overlay-main .pre-footer a:hover {
@@ -274,65 +295,46 @@ main {
   width: var(--content-50);
   max-width: var(--content-50);
   margin: 0 auto;
- text-align: center;
+
+  text-align: center;
+
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
 
-/* You had a slight “nudge up” on overlay bio text */
+.overlay-content #datetime {
+  margin-bottom: 40px;
+}
+
 .overlay-content .about-text {
   line-height: 1.5;
   margin-top: -50px;
   text-align: center;
-
 }
 
 .overlay-close {
-  padding:10px;
+  padding: 10px;
+
   text-decoration: underline;
   text-transform: uppercase;
+
   cursor: pointer;
   line-height: 1;
-  opacity: .6;
+
+  opacity: 0.6;
   transition: opacity 0.2s ease;
 }
 
 .overlay-close:hover {
   opacity: 0.3;
-  
 }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
+
   body {
     padding: var(--pad-mobile);
-  }
-
-  .desktop-only {
-    display: none;
-  }
-
-  .mobile-only {
-    display: block;
-    text-transform: uppercase;
-    line-height: 2;
-    text-align: center;
-    max-width: 100%;
-  }
-  
-  .mobile-only a{
-    text-decoration: underline;
-  }
-  
-   .mobile-only a:hover {
-    opacity: .6;
-  }
-
-  .wrapper-b {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
   }
 
   .wrapper-c,
@@ -340,9 +342,15 @@ main {
     width: 100%;
     max-width: 100%;
   }
-    
+
+  /* Hide separate pre-footer nav on mobile */
   .pre-footer {
     display: none;
+  }
+
+  /* But allow pre-footer inside overlay */
+  .full-overlay .pre-footer {
+    display: block;
   }
 
   /* Overlay on mobile */
@@ -354,5 +362,4 @@ main {
     width: 100%;
     max-width: 100%;
   }
- 
 }

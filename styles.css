@@ -362,4 +362,12 @@ main {
     width: 100%;
     max-width: 100%;
   }
+
+     header {
+    font-size: 14px;
+  }
+
+  .mobile-only {
+    font-size: 14px;
+  }
 }

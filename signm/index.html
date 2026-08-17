@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rideau Partners</title>
+  <meta name="description" content="Rideau is a private company operating across financial services, energy, and technology.">
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+  .about-text { line-height: 1.6; }
+  .internal-links { text-transform: uppercase; line-height: 2; }
+    .internal-links a {text-decoration: underline;}
+  .internal-links a:hover {text-decoration:none;}
+    
+  </style>
+  
+  </head>
+
+<body>
+
+  <!-- TOP -->
+  <header class="wrapper">
+    <span id="datetime"></span>
+  </header>
+
+  <!-- MIDDLE (LOGO LINK FIXED) -->
+  <main>
+  <div class="wrapper-c">
+    <div class="about-text">
+      Looking for Signm?<br><Br>
+For anything related to Signm, please get in touch at <a style="text-decoration: underline;" href="mailto:info@signm.io">info@signm.io</a>.
+    </div>
+
+
+    
+
+  </div>
+</main>
+  
+   <div class="pre-footer">
+   <a href="#" onclick="openMenu(); return false;">Info</a>
+</div>
+  
+  <!-- BOTTOM -->
+  <footer class="wrapper-b">
+
+    <span class="desktop-only col-left">
+      London, UK
+    </span>
+
+    <span class="desktop-only col-center">
+      Rideau Partners
+    </span>
+
+    <span class="desktop-only col-right">
+      <a href="mailto:information@rideaupartners.com">
+        information@rideaupartners.com
+      </a>
+    </span>
+
+    <span class="mobile-only">
+    Rideau Partners<br>
+      <a href="#" onclick="openMenu(); return false;">Info</a>
+    </span>
+
+  </footer>
+
+  <!-- FULL PAGE MENU OVERLAY -->
+<div class="full-overlay" id="menuOverlay" aria-hidden="true">
+
+  <div class="overlay-main">
+    <div class="overlay-content">
+
+      <div class="menu-links">
+        <a href="/">Home</a><br><br>
+        <a href="/info">About</a><br><br>
+        <a href="/contact">Contact</a>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="overlay-close" onclick="closeMenu()">Close</div>
+</footer>
+  
+</div>
+  
+  <script>
+  function openMenu() {
+    const overlay = document.getElementById('menuOverlay');
+    overlay.style.display = 'flex';
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    const overlay = document.getElementById('menuOverlay');
+    overlay.style.display = 'none';
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+</script>
+  
+  <!-- TIME SCRIPT -->
+  <script>
+    function updateDateTime() {
+      const now = new Date();
+
+      const date = now.toLocaleDateString('en-GB', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+      });
+
+      const time = now.toLocaleTimeString('en-GB', {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      });
+
+      document.getElementById('datetime').innerHTML =
+        time + '&nbsp; &#183; &nbsp;' + date;
+    }
+
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+  </script>
+
+</body>
+</html>

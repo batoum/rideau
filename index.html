@@ -3,20 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About&nbsp; &#183; &nbsp;Rideau Partners</title>
+  <title>Rideau Partners</title>
   <meta name="description" content="Rideau is a private company operating across financial services, energy, and technology.">
   <link rel="stylesheet" href="/styles.css">
-  <style>
-  .about-text { line-height: 1.6; }
-  .internal-links { text-transform: uppercase; line-height: 2; }
-    .internal-links a {text-decoration: underline;}
-  .internal-links a:hover {text-decoration:none;}
-    
-  </style>
-  
-  </head>
+</head>
 
-<body>
+<body class="theme-dark">
 
   <!-- TOP -->
   <header class="wrapper">
@@ -25,21 +17,17 @@
 
   <!-- MIDDLE (LOGO LINK FIXED) -->
   <main>
-  <div class="wrapper-c">
-    <div class="about-text">
-      Looking for Signm?<br><Br>
-For anything related to Signm, please get in touch at <a style="text-decoration: underline;" href="mailto:info@signm.io">info@signm.io</a>.
-    </div>
+      <img
+        src="https://raw.githubusercontent.com/batoum/rideau/main/logo.png"
+        alt="logo"
+        width="165"
+      >
+  </main>
 
-
-    
-
-  </div>
-</main>
-  
-   <div class="pre-footer">
+ <div class="pre-footer">
    <a href="#" onclick="openMenu(); return false;">Info</a>
 </div>
+  
   
   <!-- BOTTOM -->
   <footer class="wrapper-b">
@@ -59,12 +47,12 @@ For anything related to Signm, please get in touch at <a style="text-decoration:
     </span>
 
     <span class="mobile-only">
-    Rideau Partners<br>
+      Rideau Partners<br>
       <a href="#" onclick="openMenu(); return false;">Info</a>
     </span>
 
   </footer>
-
+  
   <!-- FULL PAGE MENU OVERLAY -->
 <div class="full-overlay" id="menuOverlay" aria-hidden="true">
 
@@ -85,7 +73,8 @@ For anything related to Signm, please get in touch at <a style="text-decoration:
 </footer>
   
 </div>
-  
+
+  <!-- MENU SCRIPT -->
   <script>
   function openMenu() {
     const overlay = document.getElementById('menuOverlay');

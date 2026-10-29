@@ -18,34 +18,10 @@ body {
   padding: 0;
 }
 
-html {
-  min-height: 100%;
-}
-
 img {
   max-width: 100%;
   height: auto;
   display: block;
-}
-
-/* ---------- Background Video ---------- */
-
-.background-video {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-  pointer-events: none;
-}
-
-body.theme-dark > header,
-body.theme-dark > main,
-body.theme-dark > .pre-footer,
-body.theme-dark > .wrapper-b {
-  position: relative;
-  z-index: 1;
 }
 
 /* ---------- Theme tokens ---------- */
@@ -387,58 +363,11 @@ main {
     max-width: 100%;
   }
 
-     header {
+  header {
     font-size: 14px;
   }
 
   .mobile-only {
     font-size: 14px;
-  }
-}
-
-
-/* iPhone full-screen video background */
-html,
-body {
-  min-height: 100%;
-}
-
-body.theme-dark {
-  min-height: 100svh;
-}
-
-body.theme-dark .background-video,
-body.theme-dark .video-background {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  height: 100dvh;
-  object-fit: cover;
-}
-
-body.theme-dark .video-background video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-body.theme-dark .full-overlay {
-  background-color: transparent;
-}
-
-/* Home menu keeps the video as its solid background. Hide the page content
-   below the menu so it cannot show through with the video. */
-body.theme-dark.menu-open > header,
-body.theme-dark.menu-open > main,
-body.theme-dark.menu-open > .pre-footer,
-body.theme-dark.menu-open > .wrapper-b {
-  visibility: hidden;
-}
-
-@media (max-width: 900px) {
-  html:has(body.theme-dark),
-  body.theme-dark {
-    background-color: #53645A;
   }
 }

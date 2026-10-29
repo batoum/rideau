@@ -418,3 +418,7 @@ body.theme-dark .video-background video {
   height: 100%;
   object-fit: cover;
 }
+
+body.theme-dark .full-overlay {
+  background-color: transparent;
+}

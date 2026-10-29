@@ -69,9 +69,13 @@ body.theme-dark .background-video {
   height: 100dvh;
   object-fit: cover;
   object-position: center;
-  background-color: #0D0C53;
+  background-color: #F3F5F7;
   z-index: 0;
   pointer-events: none;
+}
+
+body.theme-dark.video-failed .background-video {
+  background-color: #0D0C53;
 }
 
 body.theme-dark > header,

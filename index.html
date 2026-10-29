@@ -6,14 +6,23 @@
   <meta name="theme-color" content="#F3F5F7">
   <title>Rideau Partners</title>
   <meta name="description" content="Rideau is a private company operating across financial services, energy, and technology.">
-  <link rel="stylesheet" href="/styles.css?v=20261029-19">
+  <link rel="stylesheet" href="/styles.css?v=20261029-20">
 </head>
 
 <body class="theme-dark">
 
-  <video class="background-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
-    <source src="/videos/background.mp4" type="video/mp4">
+  <video id="backgroundVideo" class="background-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+    <source id="backgroundVideoSource" src="/videos/background.mp4" type="video/mp4">
   </video>
+
+  <script>
+    const backgroundVideo = document.getElementById('backgroundVideo');
+    const backgroundVideoSource = document.getElementById('backgroundVideoSource');
+    const useVideoFallback = () => document.body.classList.add('video-failed');
+
+    backgroundVideo.addEventListener('error', useVideoFallback);
+    backgroundVideoSource.addEventListener('error', useVideoFallback);
+  </script>
 
   <!-- TOP -->
   <header class="wrapper">

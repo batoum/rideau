@@ -60,6 +60,27 @@ body.theme-dark {
   --hairline: rgba(255, 255, 255, 0.12);
 }
 
+/* Homepage video background */
+body.theme-dark .background-video {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  height: 100dvh;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  pointer-events: none;
+}
+
+body.theme-dark > header,
+body.theme-dark > main,
+body.theme-dark > .pre-footer,
+body.theme-dark > .wrapper-b {
+  position: relative;
+  z-index: 1;
+}
+
 /* ---------- Base layout ---------- */
 body {
   background-color: var(--bg);
@@ -330,8 +351,24 @@ main {
   opacity: 0.3;
 }
 
+/* On the homepage, the open menu uses the same video as its background. */
+body.theme-dark .full-overlay {
+  background-color: transparent;
+}
+
+body.theme-dark.menu-open > header,
+body.theme-dark.menu-open > main,
+body.theme-dark.menu-open > .pre-footer,
+body.theme-dark.menu-open > .wrapper-b {
+  visibility: hidden;
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
+
+  body.theme-dark {
+    background-color: #53645A;
+  }
 
   body {
     padding: var(--pad-mobile);

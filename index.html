@@ -2,13 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0D0C53" media="(min-width: 901px)">
+  <meta name="theme-color" content="#53645A" media="(max-width: 900px)">
   <title>Rideau Partners</title>
   <meta name="description" content="Rideau is a private company operating across financial services, energy, and technology.">
   <link rel="stylesheet" href="/styles.css">
 </head>
 
 <body class="theme-dark">
+
+  <video class="background-video" autoplay muted loop playsinline aria-hidden="true">
+    <source src="/videos/background.mp4" type="video/mp4">
+  </video>
 
   <!-- TOP -->
   <header class="wrapper">
@@ -80,6 +86,7 @@
     const overlay = document.getElementById('menuOverlay');
     overlay.style.display = 'flex';
     overlay.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('menu-open');
     document.body.style.overflow = 'hidden';
   }
 
@@ -87,6 +94,7 @@
     const overlay = document.getElementById('menuOverlay');
     overlay.style.display = 'none';
     overlay.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('menu-open');
     document.body.style.overflow = '';
   }
 </script>

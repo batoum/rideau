@@ -366,6 +366,10 @@ body.theme-dark.menu-open > .wrapper-b {
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
 
+  body.theme-dark {
+    background-color: #E8E3D2;
+  }
+
   body {
     padding: var(--pad-mobile);
   }

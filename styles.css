@@ -385,12 +385,16 @@ body.theme-dark.menu-open > .wrapper-b {
   visibility: hidden;
 }
 
-/* ---------- Responsive ---------- */
-@media (max-width: 900px) {
-
+/* Homepage video fallback on phones and touch-screen tablets, including
+   iPad landscape. This does not alter the site's layout breakpoint. */
+@media (max-width: 900px), (max-width: 1366px) and (pointer: coarse) {
   body.theme-dark {
     background-color: #F3F5F7;
   }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
 
   body {
     padding: var(--pad-mobile);

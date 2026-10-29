@@ -367,7 +367,11 @@ body.theme-dark.menu-open > .wrapper-b {
 @media (max-width: 900px) {
 
   body.theme-dark {
-    background-color: #E8E3D2;
+    background-color: #0D0C53;
+  }
+
+  body.theme-dark .background-video {
+    display: none;
   }
 
   body {

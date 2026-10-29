@@ -62,10 +62,10 @@ body.theme-dark {
 
 /* Homepage video background */
 body.theme-dark .background-video {
+  display: block;
   position: fixed;
   inset: 0;
   width: 100%;
-  height: 100%;
   height: 100dvh;
   object-fit: cover;
   object-position: center;
@@ -86,6 +86,9 @@ body {
   background-color: var(--bg);
   color: var(--text);
 
+  animation: page-fade-in 180ms ease-out both;
+  transition: opacity 160ms ease-in;
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -102,6 +105,16 @@ body {
   text-align: center;
 
   position: relative;
+}
+
+body.page-is-leaving {
+  animation: none;
+  opacity: 0;
+}
+
+@keyframes page-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 /* ---------- Header ---------- */
@@ -292,6 +305,15 @@ main {
 
   z-index: 2000;
   text-align: center;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease;
+}
+
+.full-overlay.is-visible {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .overlay-main {
@@ -367,11 +389,7 @@ body.theme-dark.menu-open > .wrapper-b {
 @media (max-width: 900px) {
 
   body.theme-dark {
-    background-color: #0D0C53;
-  }
-
-  body.theme-dark .background-video {
-    display: none;
+    background-color: #FFFFFF;
   }
 
   body {
@@ -410,5 +428,16 @@ body.theme-dark.menu-open > .wrapper-b {
 
   .mobile-only {
     font-size: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body {
+    animation: none;
+    transition: none;
+  }
+
+  .full-overlay {
+    transition: none;
   }
 }

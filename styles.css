@@ -69,6 +69,7 @@ body.theme-dark .background-video {
   height: 100dvh;
   object-fit: cover;
   object-position: center;
+  background-color: #0D0C53;
   z-index: 0;
   pointer-events: none;
 }
@@ -105,6 +106,12 @@ body {
   text-align: center;
 
   position: relative;
+}
+
+/* Light page canvas for Safari/browser areas. The video element retains its
+   own dark-blue background as the fallback if the video cannot render. */
+body.theme-dark {
+  background-color: #F3F5F7;
 }
 
 body.page-is-leaving {

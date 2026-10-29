@@ -22,6 +22,7 @@
 <body class="theme-dark">
 
 <video
+  class="background-video"
   autoplay
   muted
   loop
@@ -109,6 +110,7 @@
     const overlay = document.getElementById('menuOverlay');
     overlay.style.display = 'flex';
     overlay.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('menu-open');
     document.body.style.overflow = 'hidden';
   }
 
@@ -116,6 +118,7 @@
     const overlay = document.getElementById('menuOverlay');
     overlay.style.display = 'none';
     overlay.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('menu-open');
     document.body.style.overflow = '';
   }
 </script>

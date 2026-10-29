@@ -422,3 +422,19 @@ body.theme-dark .video-background video {
 body.theme-dark .full-overlay {
   background-color: transparent;
 }
+
+/* Home menu keeps the video as its solid background. Hide the page content
+   below the menu so it cannot show through with the video. */
+body.theme-dark.menu-open > header,
+body.theme-dark.menu-open > main,
+body.theme-dark.menu-open > .pre-footer,
+body.theme-dark.menu-open > .wrapper-b {
+  visibility: hidden;
+}
+
+@media (max-width: 900px) {
+  html:has(body.theme-dark),
+  body.theme-dark {
+    background-color: #53645A;
+  }
+}

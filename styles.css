@@ -391,3 +391,30 @@ main {
     font-size: 14px;
   }
 }
+
+
+/* iPhone full-screen video background */
+html,
+body {
+  min-height: 100%;
+}
+
+body.theme-dark {
+  min-height: 100svh;
+}
+
+body.theme-dark .background-video,
+body.theme-dark .video-background {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  height: 100dvh;
+  object-fit: cover;
+}
+
+body.theme-dark .video-background video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

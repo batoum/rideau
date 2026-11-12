@@ -413,6 +413,10 @@ body.theme-dark.menu-open > .wrapper-b {
     max-width: 100%;
   }
 
+   main {
+    font-size: 15px;
+  }
+
   /* Hide separate pre-footer nav on mobile */
   .pre-footer {
     display: none;
